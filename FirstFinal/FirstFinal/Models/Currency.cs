@@ -12,4 +12,4 @@ namespace FirstFinal.Models
         public decimal RateToGEL { get; set; }
     }
 }
-}
+

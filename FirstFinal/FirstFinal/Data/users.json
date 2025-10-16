@@ -1,0 +1,60 @@
+[
+  {
+    "Id": "c2a8b9a5-31f7-4cb8-9313-67f52f729f01",
+    "FullName": "Nini Darchiashvili",
+    "Accounts": [
+      {
+        "Id": "9f9b3414-40b8-43f3-9a6d-37a27f40a1e2",
+        "Currency": "GEL",
+        "Balance": 1500.75,
+        "CardNumber": "1111222233334444",
+        "CreatedAt": "2024-05-10T09:00:00"
+      },
+      {
+        "Id": "0fbead21-2a89-4d33-b98b-1ffb4cc6a71d",
+        "Currency": "USD",
+        "Balance": 350.50,
+        "CardNumber": "5555666677778888",
+        "CreatedAt": "2024-05-10T09:00:00"
+      }
+    ],
+    "Cards": [
+      {
+        "CardNumber": "1111222233334444",
+        "ValidTill": "2026-10-01T00:00:00",
+        "Pin": "1234",
+        "AccountId": "9f9b3414-40b8-43f3-9a6d-37a27f40a1e2",
+        "IsBlocked": false
+      },
+      {
+        "CardNumber": "5555666677778888",
+        "ValidTill": "2026-08-01T00:00:00",
+        "Pin": "5678",
+        "AccountId": "0fbead21-2a89-4d33-b98b-1ffb4cc6a71d",
+        "IsBlocked": false
+      }
+    ]
+  },
+  {
+    "Id": "b0194b70-8c19-4c5b-bb77-92637c9a9bbd",
+    "FullName": "John Doe",
+    "Accounts": [
+      {
+        "Id": "88a33e16-0a98-4a9b-bcb4-b104848b9d23",
+        "Currency": "EUR",
+        "Balance": 980.00,
+        "CardNumber": "9999000011112222",
+        "CreatedAt": "2024-04-01T10:00:00"
+      }
+    ],
+    "Cards": [
+      {
+        "CardNumber": "9999000011112222",
+        "ValidTill": "2025-12-01T00:00:00",
+        "Pin": "9999",
+        "AccountId": "88a33e16-0a98-4a9b-bcb4-b104848b9d23",
+        "IsBlocked": false
+      }
+    ]
+  }
+]
