@@ -74,7 +74,7 @@ namespace FirstFinal.Services
         public Account GetAccountByCardNumber(string cardNumber)
         {
             var user = _userService.GetUserByCardNumber(cardNumber);
-            return user?.Accounts.FirstOrDefault(a => a.CardNumber == cardNumber);
+            return user.Accounts.FirstOrDefault(a => a.Id.Equals(user.Cards.FirstOrDefault(x=>x.CardNumber.Equals(cardNumber))));
         }
 
 
@@ -90,7 +90,7 @@ namespace FirstFinal.Services
             var allAccounts = GetAllAccounts();
             var account = allAccounts.FirstOrDefault(a => a.Id == accountId);
             if (account == null)
-                throw new InvalidOperationException("Account not found.");
+                throw new Exceptions.InvalidOperationException("Account not found.");
             return account;
         }
 

@@ -9,7 +9,7 @@ namespace FirstFinal.Services
 {
     public class LoggerService : ILoggerService
     {
-        private const string LogFilePath = "Data/system.log";
+        private const string LogFilePath = "C:\\Users\\n.kipshidze\\Desktop\\FirstFinal\\FirstFinal\\FirstFinal\\Data\\logs.log";
 
 
         public void LogInfo(string message)
