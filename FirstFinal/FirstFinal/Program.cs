@@ -38,6 +38,7 @@ namespace FirstFinal
                         Console.Write("Enter Card Valid Till (MM/yyyy): ");
                         if (!DateTime.TryParse(Console.ReadLine(), out DateTime validTill))
                         {
+                            Console.WriteLine($"Debugging: converted DateTime looks like this : {validTill}");
                             Console.WriteLine("Invalid date format.");
                             MenuHelper.Pause();
                             break;
@@ -49,10 +50,15 @@ namespace FirstFinal
                             if (authService.ValidateCard(cardNumber, validTill))
                             {
                                 Console.Write("Enter PIN: ");
-                                string pin = Console.ReadLine();
+                                string pin_st = Console.ReadLine().Trim();
+                                bool isNumeric = int.TryParse(pin_st, out int pin);
+                                if (!isNumeric)
+                                {
+                                    throw new InvalidPinException("PIN must be numeric.");
+                                }
 
 
-                                if (authService.ValidatePin(cardNumber, pin))
+                                if (authService.ValidatePin(cardNumber, pin.ToString()))
                                 {
                                     HandleUserMenu(cardNumber, accountService, transactionService, currencyService, authService);
                                 }
@@ -146,10 +152,18 @@ namespace FirstFinal
 
                         case "6":
                             Console.Write("Enter old PIN: ");
-                            string oldPin = Console.ReadLine();
+                            int.TryParse(Console.ReadLine().Trim(), out int oldPin);
+                            if (oldPin <= 0)
+                            {
+                               throw new InvalidPinException("PIN must be numeric.");
+                            }
                             Console.Write("Enter new PIN: ");
-                            string newPin = Console.ReadLine();
-                            authService.ChangePin(cardNumber, oldPin, newPin);
+                            int.TryParse(Console.ReadLine().Trim(), out int newPin);
+                            if (newPin <= 0)
+                            {
+                                throw new InvalidPinException("PIN must be numeric.");
+                            }   
+                            authService.ChangePin(cardNumber, oldPin.ToString(), newPin.ToString());
                             Console.WriteLine("PIN changed successfully.");
                             break;
 

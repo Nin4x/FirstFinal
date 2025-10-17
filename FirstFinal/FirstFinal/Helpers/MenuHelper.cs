@@ -37,6 +37,7 @@ namespace FirstFinal.Helpers
         {
             Console.WriteLine("\nPress any key to continue...");
             Console.ReadKey();
+            ShowMainMenu();
         }
     }
 }

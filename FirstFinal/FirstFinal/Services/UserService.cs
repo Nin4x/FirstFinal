@@ -11,7 +11,7 @@ namespace FirstFinal.Services
 {
     public class UserService : IUserService
     {
-        private const string UsersFilePath = "Data/users.json";
+        private const string UsersFilePath = "C:\\Users\\n.kipshidze\\Desktop\\FirstFinal\\FirstFinal\\FirstFinal\\Data\\users.json";
 
 
         public List<User> LoadUsers()
@@ -29,8 +29,14 @@ namespace FirstFinal.Services
         public User GetUserByCardNumber(string cardNumber)
         {
             var users = LoadUsers();
-            return users.FirstOrDefault(u => u.Cards.Any(c => c.CardNumber == cardNumber));
+            var user = users.First(u => u.Cards.Any(c => c.CardNumber == cardNumber));
+            if (user == null)
+                throw new Exceptions.InvalidOperationException("User not found for the given card number.");
+            else
+                return user;
         }
+
+       
     }
 }
 
