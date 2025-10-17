@@ -21,7 +21,7 @@
     "Cards": [
       {
         "CardNumber": "1111222233334444",
-        "ValidTill": "2026-10-01T00:00:00",
+        "ValidTill": "8/1/2026 12:00:00 AM",
         "Pin": "1234",
         "AccountId": "9f9b3414-40b8-43f3-9a6d-37a27f40a1e2",
         "IsBlocked": false

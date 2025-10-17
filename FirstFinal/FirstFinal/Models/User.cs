@@ -10,7 +10,7 @@ namespace FirstFinal.Models
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public string FullName { get; set; } = string.Empty;
-        public List<Account> Accounts { get; set; } = new();
+        public Account Account { get; set; } = new();
         public List<Card> Cards { get; set; } = new();
     }
 }
