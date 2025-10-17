@@ -13,6 +13,8 @@ namespace FirstFinal.Interfaces
         void Deposit(Guid accountId, decimal amount);
         void Withdraw(Guid accountId, decimal amount);
         Account GetAccountByCardNumber(string cardNumber);
-        List<Account> GetAllAccounts();
+        Account FindAccountById(Guid accountId);
+
+      //List<Account> GetAllAccounts();
     }
 }

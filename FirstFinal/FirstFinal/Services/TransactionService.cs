@@ -11,7 +11,7 @@ namespace FirstFinal.Services
 {
     public class TransactionService : ITransactionService
     {
-        private const string TransactionsFilePath = "Data/transactions.json";
+        private const string TransactionsFilePath = "C:\\Users\\n.kipshidze\\Desktop\\FirstFinal\\FirstFinal\\FirstFinal\\Data\\transactions.json";
 
 
         public void LogTransaction(Transaction transaction)

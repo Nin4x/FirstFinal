@@ -3,6 +3,7 @@ using FirstFinal.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,8 +23,9 @@ namespace FirstFinal.Services
         public bool ValidateCard(string cardNumber, DateTime validTill)
         {
             var user = _userService.GetUserByCardNumber(cardNumber);
-            var card = user?.Cards.FirstOrDefault(c => c.CardNumber == cardNumber);
-
+            var card = user?.Cards.First(c => c.CardNumber == cardNumber);
+            Console.WriteLine($"Debug: User input as DateTime {validTill}");
+            Console.WriteLine($"Debug: Card found with ValidTill = {card?.ValidTill}");
 
             if (card == null)
                 throw new InvalidCardException("Card not found.");
@@ -44,14 +46,17 @@ namespace FirstFinal.Services
         public bool ValidatePin(string cardNumber, string pin)
         {
             var user = _userService.GetUserByCardNumber(cardNumber);
-            var card = user?.Cards.FirstOrDefault(c => c.CardNumber == cardNumber);
+            var card = user?.Cards.First(c => c.CardNumber == cardNumber);
+
+            
+
 
 
             if (card == null)
                 throw new InvalidCardException("Card not found.");
 
 
-            if (card.Pin != pin)
+            if (!card.Pin.Equals(pin))
                 throw new InvalidPinException("Incorrect PIN.");
 
 
@@ -66,14 +71,14 @@ namespace FirstFinal.Services
         public void ChangePin(string cardNumber, string oldPin, string newPin)
         {
             var user = _userService.GetUserByCardNumber(cardNumber);
-            var card = user?.Cards.FirstOrDefault(c => c.CardNumber == cardNumber);
+            var card = user?.Cards.First(c => c.CardNumber == cardNumber);
 
 
             if (card == null)
                 throw new InvalidCardException("Card not found.");
 
 
-            if (card.Pin != oldPin)
+            if (!card.Pin.Equals(oldPin))
                 throw new InvalidPinException("Old PIN is incorrect.");
 
 
